@@ -20,6 +20,7 @@ pipeline {
 			}
 		}
 		stage("Build") {
+			println $dependency1CurrentVersion
 			steps {
 				script {
 					rtMaven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo	
