@@ -22,7 +22,7 @@ pipeline {
 		stage("Build") {
 			steps {
 				script {
-					sh "echo ${dependency1CurrentVersion}"
+					sh "echo ${params.dependency1CurrentVersion}"
 					rtMaven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo	
 				}		
 			}
