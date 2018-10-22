@@ -23,7 +23,9 @@ pipeline {
 			steps {
 				script {
 					sh "echo ${params.dependency1CurrentVersion}"
-					rtMaven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo	
+					//def pomModel = readMavenPom
+					//def pomVersion = pomModel.getVersion().replace(params.dependency1CurrentVersion, "0.0.2-SNAPSHOT")
+					rtMaven.run pom: 'pom.xml', goals: 'clean install versions:set -DnewVersion=${params.dependency1CurrentVersion}', buildInfo: buildInfo	
 				}		
 			}
 		}
