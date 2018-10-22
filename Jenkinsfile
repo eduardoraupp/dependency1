@@ -25,8 +25,8 @@ pipeline {
 					sh "echo ${params.dependency1CurrentVersion}"
 					//def pomModel = readMavenPom
 					//def pomVersion = pomModel.getVersion().replace(params.dependency1CurrentVersion, "0.0.2-SNAPSHOT")
-					rtMaven.run pom: 'pom.xml', goals: 'versions:set -DnewVersion=${params.dependency1CurrentVersion}', buildInfo: buildInfo	
-					rtMaven.run pom: 'pom.xml', goals: 'scm:checkin -DpushChanges'				
+					rtMaven.run pom: "pom.xml", goals: "versions:set -DnewVersion=${params.dependency1CurrentVersion}", buildInfo: buildInfo	
+					//rtMaven.run pom: 'pom.xml', goals: 'scm:checkin -DpushChanges'				
 }		
 			}
 		}
