@@ -18,11 +18,11 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
-	<distributionManagement>
+<distributionManagement>
     <repository>
         <id>central</id>
         <name>raupp-releases</name>
-        <url>http://localhost:8081/artifactory/libs-release</url>
+        <url>http://localhost:8081/artifactory/libs-release-local</url>
     </repository>
 </distributionManagement>
 </project>
