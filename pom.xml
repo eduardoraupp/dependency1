@@ -30,4 +30,16 @@
         <url>http://localhost:8081/artifactory/libs-release-local</url>
     </repository>
 </distributionManagement>
+<build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-scm-plugin</artifactId>
+        <version>1.11.1</version>
+        <configuration>
+          <connectionType>connection</connectionType>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
