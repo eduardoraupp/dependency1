@@ -26,7 +26,7 @@ pipeline {
 					sh "echo ${params.dependency1NextVersion}"
 					//def pomModel = readMavenPom
 					//def pomVersion = pomModel.getVersion().replace(params.dependency1CurrentVersion, "0.0.2-SNAPSHOT")
-			                rtMaven.run pom: 'pom.xml' goals: 'scm:checkin -Dmessage=\"commiting the pom with the release version\" -DpushChanges=false'
+			                rtMaven.run pom: 'pom.xml' goals: 'scm:checkin -DpushChanges=false'
 					rtMaven.run pom: 'pom.xml' goals: "scm:tag -Dmessage=\"tag with release version\""
 					rtMaven.run pom: 'pom.xml', goals: 'versions:set -DnewVersion="' + params.dependency1NextVersion + "'", buildInfo: buildInfo					
 					//rtMaven.run pom: 'pom.xml' goals: 'versions:set -DnewVersion=${this.currentConfig[DEVELOPMENTVERSION].toString()}"
