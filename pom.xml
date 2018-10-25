@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.jenkins</groupId>
 	<artifactId>dependend1</artifactId>
-	<version>0.0.2-SNAPSHOT'</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<scm>
 		<url>https://github.com/eduardoraupp/dependency1.git</url>
 		<connection>scm:git:git@github.com:eduardoraupp/dependency1.git</connection>
