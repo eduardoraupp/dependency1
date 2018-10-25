@@ -32,7 +32,7 @@
         <url>http://localhost:8081/artifactory/libs-release-local</url>
     </repository>
 </distributionManagement>
-<profiles>
+<!-- <profiles>
      <profile>
          <id>release</id>
 <build>
@@ -70,7 +70,7 @@
      </plugins>
     </build>
 </profile>
-<!-- <profile>
+<profile>
             <id>release</id>
             <build>
                 <plugins>
@@ -94,6 +94,6 @@
                     </plugin>
                 </plugins>
             </build>
-        </profile> -->
-</profiles>
+        </profile>
+</profiles> -->
 </project>
