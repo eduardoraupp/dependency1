@@ -24,8 +24,8 @@ pipeline {
 				script {
 					sh "echo ${params.dependency1CurrentVersion}"
 					sh "echo ${params.dependency1NextVersion}"
-					sh "git config --global user.email \"you@example.com\""
-					sh "git config --global user.name \"Your Name\""
+					//sh "git config --global user.email \"you@example.com\""
+					//sh "git config --global user.name \"Your Name\""
 					//def pomModel = readMavenPom
 					//def pomVersion = pomModel.getVersion().replace(params.dependency1CurrentVersion, "0.0.2-SNAPSHOT")
 			                rtMaven.run pom: 'pom.xml', goals: "scm:checkin -Dmessage=\"commiting the pom with the release version\" -DpushChanges=false"
