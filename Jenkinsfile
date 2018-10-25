@@ -33,7 +33,8 @@ pipeline {
 					rtMaven.run pom: 'pom.xml', goals: 'versions:set -DnewVersion="' + params.dependency1NextVersion + "'", buildInfo: buildInfo					
 					//rtMaven.run pom: 'pom.xml', goals: 'versions:set -DnewVersion=${this.currentConfig[DEVELOPMENTVERSION].toString()}"
 					rtMaven.run pom: 'pom.xml', goals: "scm:checkin -Dmessage=\"updating pom\" -DpushChanges"
-											
+							//git ls-remote -h git@bitbucket.org:person/projectmarket.git HEAD
+				
 					//rtMaven.run pom: 'pom.xml', goals: 'scm:checkin -DpushChanges'				
 }		
 			}
