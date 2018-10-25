@@ -9,7 +9,9 @@
 		<url>https://github.com/eduardoraupp/dependency1.git</url>
 		<connection>scm:git:git://github.com/eduardoraupp/dependency1.git</connection>
 		<developerConnection>scm:git:git@github.com:eduardoraupp/dependency1.git</developerConnection>
+		<tag>HEAD</tag>
 	</scm>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
