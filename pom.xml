@@ -24,7 +24,7 @@
 		<dependency>
 			<groupId>com.jenkins</groupId>
 			<artifactId>independent</artifactId>
-			<version>{independent}</version>
+			<version>${independent}</version>
 		</dependency>
 	</dependencies>
 <!--<distributionManagement>
