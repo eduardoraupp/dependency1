@@ -27,10 +27,10 @@ pipeline {
 					//sh "git config --global user.email \"you@example.com\""
 					//sh "git config --global user.name \"Your Name\""
 			                rtMaven.run pom: 'pom.xml', goals: "scm:checkin -Dmessage=\"commiting the pom with the release version\" -DpushChanges=false"
-					def pom = readMavenPom file: 'pom.xml'
-					pom.properties['independent'] = params.dependency1CurrentVersion					
-					rtMaven.run pom: 'pom.xml', goals: "scm:tag -Dmessage=\"tag with release version\" -Dtag=\"1.10.2\""
-					rtMaven.run pom: 'pom.xml', goals: 'versions:set -DnewVersion="' + params.dependency1NextVersion + '"', buildInfo: buildInfo					
+					//def pom = readMavenPom file: 'pom.xml'
+					//pom.properties['independent'] = params.dependency1CurrentVersion					
+					//rtMaven.run pom: 'pom.xml', goals: "scm:tag -Dmessage=\"tag with release version\" -Dtag=\"1.10.2\""
+					rtMaven.run pom: 'pom.xml', goals: 'versions:set -DnewVersion="' + params.dependency1NextVersion + '"-Dindependent="' + params.dependency1CurrentVersion + '"' , buildInfo: buildInfo					
 					rtMaven.run pom: 'pom.xml', goals: "scm:checkin -Dmessage=\"updating pom\" -DpushChanges"
 							//git ls-remote -h git@bitbucket.org:person/projectmarket.git HEAD
 					rtMaven.run pom: 'pom.xml', goals: "clean install", buildInfo: buildInfo
