@@ -28,10 +28,10 @@ pipeline {
 					//sh "git config --global user.name \"Your Name\""
 					//def pomModel = readMavenPom
 					//def pomVersion = pomModel.getVersion().replace(params.dependency1CurrentVersion, "0.0.2-SNAPSHOT")
-			                rtMaven.run pom: 'pom.xml', goals: "scm:checkin -Dmessage=\"commiting the pom with the release version\" -DpushChanges=false"
-					rtMaven.run pom: 'pom.xml', goals: "scm:tag -Dmessage=\"tag with release version\" -Dtag=\"1.8.2\""
-					rtMaven.run pom: 'pom.xml', goals: 'versions:set -DnewVersion="' + params.dependency1NextVersion + '"', buildInfo: buildInfo					
-					rtMaven.run pom: 'pom.xml', goals: "scm:checkin -Dmessage=\"updating pom\" -DpushChanges"
+			               // rtMaven.run pom: 'pom.xml', goals: "scm:checkin -Dmessage=\"commiting the pom with the release version\" -DpushChanges=false"
+				//	rtMaven.run pom: 'pom.xml', goals: "scm:tag -Dmessage=\"tag with release version\" -Dtag=\"1.8.2\""
+				//	rtMaven.run pom: 'pom.xml', goals: 'versions:set -DnewVersion="' + params.dependency1NextVersion + '"', buildInfo: buildInfo					
+				//	rtMaven.run pom: 'pom.xml', goals: "scm:checkin -Dmessage=\"updating pom\" -DpushChanges"
 							//git ls-remote -h git@bitbucket.org:person/projectmarket.git HEAD
 					rtMaven.run pom: 'pom.xml', goals: "clean install"
 }		
