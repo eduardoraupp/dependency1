@@ -34,7 +34,7 @@ pipeline {
 						rtMaven.run pom: 'pom.xml', goals: "scm:checkin -Dmessage=\"commiting the pom with the release version\" -DpushChanges=false"										
 						//rtMaven.run pom: 'pom.xml', goals: "scm:tag -Dmessage=\"tag with release version\" -Dtag=\"1.10.2\""
 						rtMaven.run pom: 'pom.xml', goals: 'versions:set -DnewVersion="' + params.dependency1NextVersion + '"', buildInfo: buildInfo					
-						rtMaven.run pom: 'pom.xml', goals: 'versions:set-property -Dproperty=\"independent\" -DnewVersion=[' + params.dependency1CurrentVersion + ']', buildInfo: buildInfo					
+						rtMaven.run pom: 'pom.xml', goals: 'versions:set-property -Dproperty=\"independent\" -DnewVersion=' + params.dependency1CurrentVersion + ', buildInfo: buildInfo					
 						rtMaven.run pom: 'pom.xml', goals: "scm:checkin -Dmessage=\"updating pom\" -DpushChanges"
 					}
 							//git ls-remote -h git@bitbucket.org:person/projectmarket.git HEAD
