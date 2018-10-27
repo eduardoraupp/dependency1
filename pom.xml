@@ -9,7 +9,7 @@
 		<url>https://github.com/eduardoraupp/dependency1.git</url>
 		<connection>scm:git:git@github.com:eduardoraupp/dependency1.git</connection>
 		<developerConnection>scm:git:git@github.com:eduardoraupp/dependency1.git</developerConnection>
-		<tag>HEAD</tag>
+	<!--	<tag>HEAD</tag>-->
 	</scm>
 	<properties>
 		<independent>0.0.2-SNAPSHOT</independent>
