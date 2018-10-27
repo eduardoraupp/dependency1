@@ -27,14 +27,14 @@
 			<version>${independent}</version>
 		</dependency>
 	</dependencies>
-<!--<distributionManagement>
+<distributionManagement>
     <repository>
-        <id>central</id>
+        <id>release</id>
         <name>raupp-releases</name>
-        <url>http://localhost:8081/artifactory/libs-snapshot-local</url>
+        <url>http://localhost:8081/artifactory/libs-release-local</url>
     </repository>
 </distributionManagement>
- <profiles>
+<!-- <profiles>
      <profile>
          <id>release</id>
 <build>
