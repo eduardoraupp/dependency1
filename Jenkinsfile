@@ -26,13 +26,17 @@ pipeline {
 					sh "echo ${params.dependency1NextVersion}"
 					//sh "git config --global user.email \"you@example.com\""
 					//sh "git config --global user.name \"Your Name\""
-			                rtMaven.run pom: 'pom.xml', goals: "scm:checkin -Dmessage=\"commiting the pom with the release version\" -DpushChanges=false"
-					//def pom = readMavenPom file: 'pom.xml'
-					//pom.properties['independent'] = params.dependency1CurrentVersion					
-					//rtMaven.run pom: 'pom.xml', goals: "scm:tag -Dmessage=\"tag with release version\" -Dtag=\"1.10.2\""
-					rtMaven.run pom: 'pom.xml', goals: 'versions:set -DnewVersion="' + params.dependency1NextVersion + '"', buildInfo: buildInfo					
-					rtMaven.run pom: 'pom.xml', goals: 'versions:set-property -Dproperty=\"independent\" -DnewVersion=[' + params.dependency1CurrentVersion + ']', buildInfo: buildInfo					
-					rtMaven.run pom: 'pom.xml', goals: "scm:checkin -Dmessage=\"updating pom\" -DpushChanges"
+					if(params.isRelease) {
+						//rtMaven.run pom: 'pom.xml', goals: 'versions:set -DnewVersion="' + params.dependency1NextVersion + '"', buildInfo: buildInfo					
+						rtMaven.run pom: 'pom.xml', goals: 'versions:set-property -Dproperty=\"independent\" -DnewVersion=[' + params.dependency1CurrentVersion + ']', buildInfo: buildInfo
+						rtMaven.run pom: 'pom.xml', goals: '-B release:prepare release:perform'
+					} else {
+						rtMaven.run pom: 'pom.xml', goals: "scm:checkin -Dmessage=\"commiting the pom with the release version\" -DpushChanges=false"										
+						//rtMaven.run pom: 'pom.xml', goals: "scm:tag -Dmessage=\"tag with release version\" -Dtag=\"1.10.2\""
+						rtMaven.run pom: 'pom.xml', goals: 'versions:set -DnewVersion="' + params.dependency1NextVersion + '"', buildInfo: buildInfo					
+						rtMaven.run pom: 'pom.xml', goals: 'versions:set-property -Dproperty=\"independent\" -DnewVersion=[' + params.dependency1CurrentVersion + ']', buildInfo: buildInfo					
+						rtMaven.run pom: 'pom.xml', goals: "scm:checkin -Dmessage=\"updating pom\" -DpushChanges"
+					}
 							//git ls-remote -h git@bitbucket.org:person/projectmarket.git HEAD
 					rtMaven.run pom: 'pom.xml', goals: "clean install", buildInfo: buildInfo
 }		
