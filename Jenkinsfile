@@ -35,7 +35,7 @@ pipeline {
 					} else {
 						rtMaven.run pom: 'pom.xml', goals: "scm:checkin -Dmessage=\"commiting the pom with the release version\" -DpushChanges=false"										
 						//rtMaven.run pom: 'pom.xml', goals: 'versions:set -DnewVersion="' + params.dependency2NextVersion + '"', buildInfo: buildInfo					
-						if(params.parentDependencyVersion != null && params.parentDependencyVersion) {						
+						if(params.parentDependencyVersion != null && params.parentDependencyVersion != "X.X.X") {						
 							rtMaven.run pom: 'pom.xml', goals: 'versions:set-property -Dproperty=\"independent\" -DnewVersion="' + params.parentDependencyVersion + '"', buildInfo: buildInfo					
 							rtMaven.run pom: 'pom.xml', goals: "scm:checkin -Dmessage=\"updating pom\" -DpushChanges"						
 						}							
