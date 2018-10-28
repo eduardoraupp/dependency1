@@ -12,7 +12,7 @@
 	<!--	<tag>HEAD</tag>-->
 	</scm>
 	<properties>
-		<independent>0.0.2-SNAPSHOT</independent>
+		<independent>0.0.7</independent>
 	</properties>
 	<dependencies>
 		<dependency>
