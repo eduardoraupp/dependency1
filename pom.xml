@@ -28,74 +28,45 @@
 		</dependency>
 	</dependencies>
 <distributionManagement>
+
     <repository>
+	<uniqueVersion>false</uniqueVersion>
         <id>central</id>
         <name>raupp-releases</name>
-        <url>http://localhost:8081/artifactory/libs-release</url>
+        <url>http://localhost:8081/artifactory/libs-release-local</url>
+	<layout>default</layout>
     </repository>
+
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>raupp-snapshots</name>
+        <url>http://localhost:8081/artifactory/libs-snapshot-local</url>
+    </snapshotRepository>
+
 </distributionManagement>
-<!-- <profiles>
-     <profile>
-         <id>release</id>
 <build>
-      <plugins>
-       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-scm-plugin</artifactId>
-         <dependencies>
-            <dependency>
-               <groupId>org.codehaus.plexus</groupId>
-               <artifactId>plexus-utils</artifactId>
-               <version>2.1</version>
-            </dependency>
-            <dependency>
-               <groupId>org.apache.maven.scm</groupId>
-               <artifactId>maven-scm-provider-gitexe</artifactId>
-               <version>1.2</version>
-           </dependency>
-         </dependencies>
-        <version>1.0</version>
-        <configuration>
-          <tag>test</tag>
-          <connectionType>connection</connectionType>
-        </configuration>
-        <executions>
-          <execution>
-          <id>tag</id>
-          <phase>deploy</phase>
-          <goals>
-            <goal>tag</goal>
-          </goals>
-          </execution>
-        </executions>
-       </plugin>
-     </plugins>
-    </build>
-</profile>
-<profile>
-            <id>release</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-scm-plugin</artifactId>
-                        <version>1.11.1</version>
-                        <configuration>
-                            <tag>${project.version}</tag>
-                            <providerImplementations>
-                                <git>jgit</git>
-                            </providerImplementations>
-                        </configuration>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.apache.maven.scm</groupId>
-                                <artifactId>maven-scm-provider-jgit</artifactId>
-                                <version>1.11.1</version>
-                            </dependency>
-                        </dependencies>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-</profiles> -->
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.4.2</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.scm</groupId>
+						<artifactId>maven-scm-provider-gitexe</artifactId>
+						<version>1.9</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
 </project>
