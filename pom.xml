@@ -11,7 +11,7 @@
 	  <tag>HEAD</tag>
   </scm>
 	<properties>
-		<independent>0.0.10</independent>
+		<independent>0.0.10-SNAPSHOT</independent>
 	</properties>
 	<dependencies>
 		<dependency>
